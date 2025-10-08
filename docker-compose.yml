@@ -1,0 +1,27 @@
+services:
+  backend:
+    build:
+      context: ./app  # <-- DEĞİŞİKLİK BURADA: Docker'a doğru klasörü gösteriyoruz.
+    container_name: db-analyst-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      # Geliştirme sırasında canlı kod değişikliği için
+      - ./app:/app
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: db-analyst-frontend
+    ports:
+      - "7860:7860"
+    env_file:
+      - .env
+    volumes:
+      - ./frontend:/app
+    restart: unless-stopped
+    depends_on:
+      - backend

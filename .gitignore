@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Data files - ASLA VERİLERİ GİT'E GÖNDERME
+app/data/
+
 # Distribution / packaging
 .Python
 build/
