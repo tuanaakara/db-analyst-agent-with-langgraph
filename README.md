@@ -47,41 +47,41 @@ Proje, birbirinden tamamen bağımsız iki ana servisten oluşur ve bu servisler
     Ölçeklenebilir Mimari: Docker Compose ile yönetilen backend ve frontend servisleri, yüksek trafik altında bağımsız olarak ölçeklendirilebilir.
 
 
+Dosya Yapısı
 
 db-analyst-agent-with-langgraph/
 │
-├── .dockerignore         # Docker imajına kopyalanmayacak dosyaları belirtir
-├── .env                  # Gizli bilgiler (API anahtarı vb.)
-├── .env.example          # .env dosyası için doldurulması gereken şablon
-├── .gitignore            # Git'e gönderilmeyecek dosyaları belirtir
-├── docker-compose.yml    # Backend ve Frontend servislerini yöneten ana dosya
-├── LICENSE               # Projenin lisans bilgileri (opsiyonel)
-├── README.md             # Bu dosya
+├── .dockerignore
+├── .env
+├── .env.example
+├── .gitignore
+├── docker-compose.yml
+├── LICENSE
+├── README.md
 │
-├── app/                  # <-- Backend Servisi
-│   ├── Dockerfile          # Backend için Docker talimatları
-│   ├── requirements.txt    # Backend'in Python bağımlılıkları
-│   ├── backend.py          # FastAPI uygulamasının giriş noktası
+├── app/
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   ├── backend.py
 │   ├── data/
-│   │   └── .db # Veritabanı dosyası
+│   │   └── .db
 │   └── db_analyst/
-│       ├── __init__.py     # Bu klasörün bir Python paketi olduğunu belirtir
-│       ├── agent.py        # Ana AIAnalyst sınıfını ve ana akışı içerir
-│       ├── config.py       # Merkezi, gizli olmayan ayarlar
-│       ├── exceptions.py   # Projeye özel hata sınıfları
-│       ├── gemini_service.py # Gemini LLM ile iletişimi yönetir
-│       ├── graph.py        # LangGraph mimarisini (workflow) kurar
-│       ├── nodes.py        # Agent'ın mantık adımlarını (planner, executor) içerir
-│       ├── prompts.py      # Tüm prompt şablonları
-│       ├── schemas.py      # Pydantic veri modelleri (API ve State)
-│       ├── tools.py        # Veritabanı araçları (execute_sql)
-│       └── utils.py        # Genel yardımcı fonksiyonlar
+│       ├── __init__.py
+│       ├── agent.py
+│       ├── config.py
+│       ├── exceptions.py
+│       ├── gemini_service.py
+│       ├── graph.py
+│       ├── nodes.py
+│       ├── prompts.py
+│       ├── schemas.py
+│       ├── tools.py
+│       └── utils.py
 │
-└── frontend/             # <-- Frontend Servisi
-    ├── Dockerfile          # Frontend için Docker talimatları
-    ├── requirements.txt    # Frontend'in Python bağımlılıkları
-    └── frontend.py         # Gradio arayüzünün giriş noktası
-
+└── frontend/
+    ├── Dockerfile
+    ├── requirements.txt
+    └── frontend.py
 
 
 🛠️ Kurulum ve Çalıştırma
